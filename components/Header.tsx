@@ -1,16 +1,20 @@
 import { View, Image, StyleSheet,Text, TouchableOpacity } from 'react-native';
-import { ShoppingCart,Settings2 } from 'lucide-react-native';
+import { ShoppingCart,Settings2, User } from 'lucide-react-native';
+import { useRouter } from 'expo-router';
 
 
 
 export default function Header(){
+    const router = useRouter();
     return (
         <View style={styles.headerContainer}>
             <TouchableOpacity>
                 <Settings2 size={30} color="black"/>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => router.push("/products")}>
             <Text style={styles.title}> SuperMini </Text>
-            <TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => router.push("/products/cart")}>
                 <ShoppingCart size={30} color="black"/>
             </TouchableOpacity>
         </View>
